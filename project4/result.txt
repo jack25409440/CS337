@@ -1,0 +1,100 @@
+*Main> overpaid database0
+["Virginia Dare","Buster Keaton","Vanessa Redgrave"]
+*Main> overpaid database1
+[]
+*Main> overpaid database2
+["Carol","Eric"]
+*Main> overpaid database3
+["Carol","Fran","Dan","Eric"]
+
+*Main> grossly_overpaid database0
+["Vanessa Redgrave"]
+*Main> grossly_overpaid database1
+[]
+*Main> grossly_overpaid database2
+["Carol","Eric"]
+*Main> grossly_overpaid database3
+["Carol","Fran","Dan","Eric"]
+
+*Main> spouse_manager database0
+["Vanessa Redgrave"]
+*Main> spouse_manager database1
+[]
+*Main> spouse_manager database2
+["Alex"]
+*Main> spouse_manager database3
+["Alex"]
+
+*Main> spouse_manager_super database0
+["Edna Millay","Vanessa Redgrave"]
+*Main> spouse_manager_super database1
+[]
+*Main> spouse_manager_super database2
+["Dan","Alex","Carol"]
+*Main> spouse_manager_super database3
+["Alex"]
+
+*Main> super_manager database0
+["Virginia Dare","Edna Millay","James Joyce"]
+*Main> super_manager database1
+[]
+*Main> super_manager database2
+["Carol","Bob","Alex"]
+*Main> super_manager database3
+[]
+
+*Main> nepotism database0
+[("Ingrid Joyce","Laurence Sterne"),("Laurence Sterne","Ingrid Joyce")]
+*Main> nepotism database1
+[]
+*Main> nepotism database2
+[]
+*Main> nepotism database3
+[]
+
+*Main> rich database0
+[("Lana Turner","Buster Keaton"),("Virginia Dare","Laurence Sterne")]
+*Main> rich database1
+[]
+*Main> rich database2
+[("Carol","Eric")]
+*Main> rich database3
+[("Carol","Eric")]
+
+*Main> sorted_salaries database0
+["Vanessa Redgrave","Virginia Dare","Edna Millay","James Joyce","Ingrid Joyce"]
+*Main> sorted_rank database0
+["Virginia Dare","James Joyce","Vanessa Redgrave","Ingrid Joyce","Edna Millay"]
+*Main> sorted_worth database0
+["Vanessa Redgrave","Edna Millay","Ingrid Joyce","Virginia Dare","James Joyce"]
+
+*Main> sorted_salaries database1
+[]
+*Main> sorted_rank database1
+[]
+*Main> sorted_worth database1
+[]
+
+*Main> sorted_salaries database2
+["Eric","Carol","Dan","Alex","Bob"]
+*Main> sorted_rank database2
+["Dan","Carol","Alex","Eric","Bob"]
+*Main> sorted_worth database2
+["Eric","Carol","Dan","Alex","Bob"]
+
+*Main> sorted_salaries database3
+["Alex"]
+*Main> sorted_rank database3
+["Alex"]
+*Main> sorted_worth database3
+["Alex"]
+
+
+*Main> normalize database0
+[("James Joyce","Ingrid Joyce",60000,"Root"),("Vanessa Redgrave","Michael Redgrave",110000,"James Joyce"),("Michael Redgrave","Vanessa Redgrave",40000,"Vanessa Redgrave"),("Edna Millay","Ted Hughes",70000,"Root"),("Laurence Sterne","Virginia Dare",60000,"James Joyce"),("Virginia Dare","Laurence Sterne",100000,"Edna Millay"),("Ingrid Joyce","James Joyce",60000,"Virginia Dare"),("Lana Turner","Buster Keaton",80000,"Virginia Dare"),("Ted Hughes","Edna Millay",70000,"Virginia Dare"),("Buster Keaton","Lana Turner",80000,"Ingrid Joyce")]
+*Main> normalize database1
+[]
+*Main> normalize database2
+[("Alex","Bob",100000,"Root"),("Bob","Alex",100000,"Alex"),("Carol","Eric",200000,"Bob"),("Dan","Fran",150000,"Carol"),("Eric","Carol",300000,"Dan"),("Fran","Dan",200000,"Eric")]
+*Main> normalize database3
+[("Carol","Eric",200000,"Root"),("Fran","Dan",200000,"Root"),("Dan","Fran",150000,"Root"),("Alex","Bob",100000,"Root"),("Eric","Carol",300000,"Root"),("Bob","Alex",100000,"Alex")]

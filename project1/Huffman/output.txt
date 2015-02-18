@@ -1,0 +1,4 @@
+Actual length of the file by Huffman coding is
+8
+and minimum achievable is
+8.0

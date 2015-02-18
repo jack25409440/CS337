@@ -1,0 +1,110 @@
+import java.io.*;
+import java.util.*;
+
+public class FSMachine
+{
+    public static final char[] A= {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+    public static final char[] D={'0','1','2','3','4','5','6','7','8','9'};
+    public static final char[] N={'1','2','3','4','5','6','7','8','9'};
+    public static final char[] S={'~','!','@','#','%','^','&','*','(',')','-','+','{','}','.',','};
+
+    public static void main(String args[])
+    {
+        boolean inTurn=false;
+        if(args.length==1)
+        inTurn=true;
+        else
+           if(args.length==0)
+           {
+              System.out.println("Please specify string file");
+              return;
+           }
+        File strFile=new File(args[0]);
+        if (!strFile.exists()) 
+         {
+             System.out.println(args[0] + " does not exist.");
+             return;
+          }
+          if (!(strFile.isFile() && strFile.canRead())) 
+          {
+              System.out.println(strFile.getName() + " cannot be read from.");
+              return;
+          }
+        FSMachine fsm=new FSMachine();
+        ArrayList<String> str=fsm.processString(strFile);
+        ArrayList<File> files=new ArrayList<File>();
+        if(inTurn)
+        {
+           files.add(new File("machine1.fsm"));
+           files.add(new File("machine2.fsm"));
+           files.add(new File("machine3.fsm"));
+           files.add(new File("machine4.fsm"));
+           files.add(new File("machine5.fsm"));
+           files.add(new File("machine6.fsm"));
+           files.add(new File("machine7.fsm"));
+        }else
+        {
+           for(int i=1;i<args.length;i++)
+           {
+              files.add(new File(args[i]));
+           }
+        }
+       fsm.checkMachine(files,str);
+        
+    }
+   
+    ArrayList<String> processString(File file)
+    {
+       ArrayList<String> strList=new ArrayList<String>();
+       try
+       {
+          FileInputStream fis=new FileInputStream(file);
+          FileReader read = new FileReader(file);
+          BufferedReader br = new BufferedReader(read);
+          String str;
+          while((str=br.readLine())!=null)
+          {
+            if(!((str.trim()).equals("")))
+            {
+                strList.add(str.trim());
+                //System.out.println(str);
+            }
+          }
+          br.close();
+          read.close();
+       }catch(Exception e)
+       {
+          System.out.println(e);
+       }
+
+       return strList;
+    }
+
+   //process fsm
+   void checkMachine(ArrayList<File> machines, ArrayList<String> str)
+   {
+      //TO DO: implementation
+      HashMap<String,Machine> mhash = new HashMap<String,Machine>();
+      for(int i=0;i<machines.size();i++)
+      {
+          
+      }
+   }
+
+
+   private class Machine
+   {
+     //TO DO: implementation
+     String name;
+     HashMap<Integer,State> states=new HashMap<Integer,State>();
+     void Machine(String name)
+     {
+        this.name=name;
+     }
+   }
+ 
+   private class State
+   {
+       //TO DO: implementation
+   }
+}

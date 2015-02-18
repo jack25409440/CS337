@@ -1,0 +1,115 @@
+Xiaohui Chen
+xc2388
+xhchen0328@utexas.edu
+
+Jiawei Guo
+jg44347
+tomwei1992@gmail.com
+
+CS machine: charity.cs.utexas.edu
+Full binary path: charity.cs.utexas.edu/usr/bin/java
+
+Compile instruction
+java FSMachine strings.txt --runs all the machines with the strings in string.txt
+java FSMachine strings.txt machineX1.fsm machineX2.fsm --runs specified machines
+
+Test Cases:
+123
+01
+23,121,123
+23,12,1
++23213123
+-0
++0
++-1
++5.718
+343gnewkngewgwg%^%laurelwe
+floidskmnjllaurelehwjficw
+laukrkel
+2.332423
+5.7182818281828
+0.0000000000
+01.00
+100.08
+i(think(i(am)so)handsome)!!!
+(a)(b)(csdfwdsvce)(cwedfqacwe)(dwqdcergjiorefvew)(dweqfwefe)(dwqdwqd)(dwqdwq)(wqdwqd)(wqdwq)wq(wqdwq)wqdwq(wqdwqdwq)
+(this(string(should)work)())(())()
+(this(should(not(work(())))))
+12389
+123456789
+0987423
+
+Outputs:
+machine1.fsm Accepted: 123
+machine2.fsm Accepted: 123
+machine3.fsm Accepted: 123
+machine7.fsm Accepted: 123
+machine7.fsm Accepted: 01
+machine2.fsm Accepted: 23,121,123
+machine3.fsm Accepted: +23213123
+machine3.fsm Accepted: -0
+machine3.fsm Accepted: +0
+machine4.fsm Accepted: 343gnewkngewgwg%^%laurelwe
+machine5.fsm Accepted: 2.332423
+machine5.fsm Accepted: 5.7182818281828
+machine5.fsm Accepted: 0.0000000000
+machine5.fsm Accepted: 100.08
+machine6.fsm Accepted: i(think(i(am)so)handsome)!!!
+machine6.fsm Accepted: (a)(b)(csdfwdsvce)(cwedfqacwe)(dwqdcergjiorefvew)(dweqfwefe)(dwqdwqd)(dwqdwq)(wqdwqd)(wqdwq)wq(wqdwq)wqdwq(wqdwqdwq)
+machine6.fsm Accepted: (this(string(should)work)())(())()
+machine1.fsm Accepted: 12389
+machine3.fsm Accepted: 12389
+machine7.fsm Accepted: 12389
+machine1.fsm Accepted: 123456789
+machine3.fsm Accepted: 123456789
+machine7.fsm Accepted: 123456789
+ 
+
+Attentions:
+The FSM interpreter doesn't accept nondeterministic fsms.
+The FSM interpreter always looks for state 1 description on the first line of .fsm file. This constraint can be removed if checkState1(Scanner) is not called.
+Usage:
+java FSMachine string.txt [machine1.fsm] ... [machine7.fsm]
+
+
+
+The FSMachine class
+
+private String name: machine name
+private HashMap<Integer, HashMap<Character, Integer>> transitions: transitions for each state
+private HashSet<Integer> acceptingStates: accepting states
+private boolean isValid: whether the machine is valid
+
+Constructor:
+	It takes the .fsm file and construct the corresponding mahcine.
+	Whenever an error occurred, the machine becomes invalid and unusable.
+	It expects the first line of .fsm file to be the description of state 1. This constraint can be removed if checkState1(Scanner) is not called. However, it doesn't check if state 1 is specified in the file if the first line doesn't contain the information.
+	Next, it iterates through the file and constructs the machine.
+	If there's no transition from 1 but there are more than 1 state. The machine is invalid.
+
+
+private checkState1(Scanner)
+	Checks if the first line specifies state 1.
+private processNSPAndASF(int, String[], HashMap<Character, Integer>)
+	Doing the same thing as its name segguests.
+	If X is detected, the state is added to acceptingStates.
+	If a nsp is detected, call addTransitions(...)
+private addTransitions(HashMap<Character, Integer>, String, int)
+	add transition to state int according to what String specifies
+private addGroup
+	batch addTransitions
+
+
+isValid()/getName()
+	getters
+acceptString(String)
+	returns true if this machine accepts the argument string, false otherwise
+
+
+
+Main method:
+Takes one or more arguemnts
+First argument is string.txt, the rest are .fsm files
+Test each line in string.txt against each machine
+
+	

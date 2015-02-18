@@ -1,0 +1,7 @@
+1 2:l 1:DNSabcdefghijkmnopqrstuvwxyz
+2 3:a 1:DNSbcdefghijkmnopqrstuvwxyz 2:l
+3 4:u 1:DNSabcdefghijkmnopqrstvwxyz 2:l
+4 5:r 1:DNSabcdefghijkmnopqstuvwxyz 2:l
+5 6:e 1:DNSabcdfghijkmnopqrstuvwxyz 2:l
+6 7:l 1:DNSabcdefghijkmnopqrstuvwxyz
+7 7:ADNS X

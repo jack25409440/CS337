@@ -1,0 +1,56 @@
+Xiaohui Chen
+xc2388
+xhchen0328@utexas.edu
+
+Jiawei Guo
+jg44347
+tomwei1992@gmail.com
+
+CS machine: charity.cs.utexas.edu
+Full binary path: charity.cs.utexas.edu/usr/bin/java
+
+Compile instruction
+javac Encrypt.java
+java Encrypt plaintext key.txt
+javac Decrypt.java
+java Decrypt encrypted key.txt
+
+key.txt
+This file stores the n value, the public key e and the private key d in three lines. It is used in both Encrypt.java and Decrypt.java
+
+Encrypt.java
+This java file takes 2 arguments, one is the path for the input file and the other is for the key file. The program first reads e and n from key.txt. Then 3 one-byte-block are read in one interation of the while loop, and merges it to an integer at the end of the iteration encryption method is called. This method calculates M^e mod n using a simplification algorithm of mod in textbook. Finally the encrypted number is written into a file named encrypted by calling writeFile method. The while loop iterates until the file input stream reaches the end of the input plaintext file.
+
+Decrypted.java
+This java file also takes 2 arguments, the first is for the path of encrypted file and the second one is for the path of key file. At the begining, a file reader reads the private key d and the n value. Then a while loop similar to the one in Encypt.java iterates, reading 3 chars, combining into an integer and calling decrypt method is to calculate M'^d mod n. Finally writeFile method is called, which splits the interger into 3 chars and write the decrypted number is written into decrypted file. The while loop iterates until the file input stream reaches the end of the input encrypted file.
+
+Test Cases:
+key.txt
+134717899
+17
+63385073
+
+Encrypted.java
+input:
+abcdefghijklmnopqrstuvwxyzABCDEFG
+output:
+127470912347241551332625898394344162427199110828193115851775663252355271329124262207222363341771639
+
+input: a
+output: 75850738
+
+input: ab
+output: 59139953
+
+Decrypted.java
+input:
+127470912347241551332625898394344162427199110828193115851775663252355271329124262207222363341771639
+output: 
+abcdefghijklmnopqrstuvwxyzABCDEFG
+
+
+input: 75850738
+output: a
+
+input: 59139953
+output: ab
